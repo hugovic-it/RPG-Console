@@ -1,3 +1,4 @@
+using System.Security.AccessControl;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,8 @@ public class AppDbContext : DbContext
 {
     public DbSet<Jogador> Jogadores { get; set; }
     public DbSet<Inimigo>  Inimigos { get; set; }
+    public DbSet<EquipamentoArma> Arma { get; set; }
+    public DbSet<EquipamentoArmadura> Armadura { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
