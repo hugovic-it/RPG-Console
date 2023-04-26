@@ -17,4 +17,9 @@ public class Jogador
     public EquipamentoArmadura? Armadura { get; set; }
     public ICollection<Item>? Itens {get; set;}
 
+    public override string ToString()
+    {
+        return 
+        $"Id:{JogadorId} Nome:{Nome} Hp:{Hp} Mp:{Mp} Forca:{Forca} Defesa:{Defesa}";
+    }
 }
