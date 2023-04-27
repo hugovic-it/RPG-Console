@@ -17,7 +17,6 @@ namespace rpg_console.Controllers
             _context = contexto;
         }
         public void CadastrarJogador(){
-
             try{
                 System.Console.WriteLine("Inserir dados do Jogador: \n");
                 System.Console.Write("Inserir o Nome: ");
@@ -30,13 +29,15 @@ namespace rpg_console.Controllers
                 int forca = int.Parse(Console.ReadLine());
                 System.Console.Write("Inserir a quantidade de Defesa: ");
                 int defesa = int.Parse(Console.ReadLine());
+                
 
                 Jogador jogador = new Jogador{
                     Nome = nome,
                     Hp = hp,
                     Mp = mp,
                     Forca = forca,
-                    Defesa = defesa
+                    Defesa = defesa,
+                    Experiencia = 0
                 };
 
                 _context.Add(jogador);
@@ -58,7 +59,6 @@ namespace rpg_console.Controllers
             var jogadores = _context.Jogadores.ToList();
 
             foreach(Jogador jogador in jogadores ){
-
                 System.Console.WriteLine(jogador.ToString());
             }
         }

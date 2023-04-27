@@ -14,11 +14,8 @@ class Program
 
         Console.WriteLine("Olár!");
 
-        //
-        
-
         int menu = 0;
-        while( menu != 4){
+        while(menu != 4){
 
             System.Console.WriteLine(" ============= Menu ============= ");
             System.Console.WriteLine(" 1 -> Cadastrar Jogador ");
@@ -29,8 +26,6 @@ class Program
             System.Console.Write("Inserir index de navegação: ");
             menu = int.Parse(Console.ReadLine());
            
-
-            //switch case
             switch (menu){
                 case 1:
                     jogadorController.CadastrarJogador();
@@ -42,7 +37,6 @@ class Program
                     jogadorController.VerTodosJogadores();
                     break;
             }
-
         }
         System.Console.WriteLine("Fim menu!");
     }

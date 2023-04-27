@@ -9,5 +9,12 @@ namespace rpg_console.Models
     {
         public int EquipamentoArmaId { get; set; }
         public string? Nome { get; set; }
+        public string? Descricao { get; set; }
+        public string? Defesa { get; set; }
+
+        public override string ToString()
+        {
+            return $"Id:{EquipamentoArmaId} Nome{Nome} \n Descricao:{Descricao}";
+        }
     }
 }

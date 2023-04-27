@@ -10,5 +10,11 @@ namespace rpg_console.Models
     {
         public int ItemId { get; set; }
         public string? Nome { get; set; }
+        public string? Descricao { get; set; }
+   
+        public override string ToString()
+        {
+            return $"Id:{ItemId} Nome{Nome} \n Descricao:{Descricao}";
+        }
     }
 }
