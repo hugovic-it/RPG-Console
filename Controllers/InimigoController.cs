@@ -30,7 +30,7 @@ namespace rpg_console.Controllers
                 int forca = int.Parse(Console.ReadLine());
                 System.Console.Write("Inserir a quantidade de Defesa: ");
                 int defesa = int.Parse(Console.ReadLine());
-                System.Console.WriteLine("Inserir a quantidade de Experiencia: ");
+                System.Console.Write("Inserir a quantidade de Experiencia: ");
                 int experiencia = int.Parse(Console.ReadLine());
                 
 
