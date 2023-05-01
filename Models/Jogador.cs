@@ -14,6 +14,7 @@ public class Jogador
     public int Forca { get; set; }
     public int Defesa { get; set; }
     public int Experiencia { get; set; }
+    public int Moedas { get; set; }
     public EquipamentoArma? Arma { get; set; }
     public EquipamentoArmadura? Armadura { get; set; }
     public ICollection<Item>? Itens {get; set;}
@@ -21,6 +22,6 @@ public class Jogador
     public override string ToString()
     {
         return 
-        $"Id:{JogadorId} Nome:{Nome} Hp:{Hp} Mp:{Mp} Forca:{Forca} Defesa:{Defesa} Experiencia:{Experiencia}";
+        $"Id:{JogadorId} Nome:{Nome} Hp:{Hp} Mp:{Mp} Forca:{Forca} Defesa:{Defesa} Experiencia:{Experiencia} Moedas:{Moedas}";
     }
 }

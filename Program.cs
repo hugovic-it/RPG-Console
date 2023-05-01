@@ -94,11 +94,12 @@ class Program
             }
             submenu = 0 ;
             //=======================================================================================================
-            while(menu == 3 && submenu !=2)
+            while(menu == 3 && submenu !=3)
             {
                 System.Console.WriteLine("submenu batalha");
-                System.Console.WriteLine(" 1 -> Batalha Certa! ");
-                System.Console.WriteLine(" 2 -> Sair");
+                System.Console.WriteLine(" 1 -> Batalha Certa ");
+                System.Console.WriteLine(" 2 -> Batalha Normal");
+                System.Console.WriteLine(" 3 -> Sair");
                 submenu = int.Parse(Console.ReadLine());
 
                 switch(submenu){
@@ -109,6 +110,7 @@ class Program
                         break;
                     case 2:
                         System.Console.WriteLine("Caso 2");
+                        batalha.LutaNormal();
                         break;
                 }
                 

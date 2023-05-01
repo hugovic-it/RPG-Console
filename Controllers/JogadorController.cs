@@ -31,6 +31,7 @@ namespace rpg_console.Controllers
                 System.Console.Write("Inserir a quantidade de Defesa: ");
                 int defesa = int.Parse(Console.ReadLine());
                 
+                
 
                 Jogador jogador = new Jogador{
                     Nome = nome,
@@ -38,7 +39,8 @@ namespace rpg_console.Controllers
                     Mp = mp,
                     Forca = forca,
                     Defesa = defesa,
-                    Experiencia = 0
+                    Experiencia = 0,
+                    Moedas = 0
                 };
 
                 _context.Add(jogador);

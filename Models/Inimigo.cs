@@ -14,10 +14,11 @@ public class Inimigo
     public int Forca { get; set; }
     public int Defesa { get; set; }
     public int Experiencia { get; set; }
+    public int Moedas { get; set; }
 
     public override string ToString()
     {
         return 
-        $"Id:{InimigoId} Nome:{Nome} Hp:{Hp} Mp:{Mp} Forca:{Forca} Defesa:{Defesa} Experiencia:{Experiencia}";
+        $"Id:{InimigoId} Nome:{Nome} Hp:{Hp} Mp:{Mp} Forca:{Forca} Defesa:{Defesa} Experiencia:{Experiencia} Moedas:{Moedas}";
     }
 }

@@ -32,6 +32,8 @@ namespace rpg_console.Controllers
                 int defesa = int.Parse(Console.ReadLine());
                 System.Console.Write("Inserir a quantidade de Experiencia: ");
                 int experiencia = int.Parse(Console.ReadLine());
+                System.Console.Write("Inserir a quantidade de Moedas: ");
+                int moedas = int.Parse(Console.ReadLine());
                 
 
                 Inimigo inimigo = new Inimigo{
@@ -40,7 +42,8 @@ namespace rpg_console.Controllers
                     Mp = mp,
                     Forca = forca,
                     Defesa = defesa,
-                    Experiencia = experiencia
+                    Experiencia = experiencia,
+                    Moedas = moedas
                 };
 
                 _context.Add(inimigo);
@@ -90,8 +93,10 @@ namespace rpg_console.Controllers
             int forca = int.Parse(Console.ReadLine());
             System.Console.Write("Inserir a quantidade de Defesa: ");
             int defesa = int.Parse(Console.ReadLine());
-            System.Console.WriteLine("Inserir a quantidade de Experiencia: ");
+            System.Console.Write("Inserir a quantidade de Experiencia: ");
             int experiencia = int.Parse(Console.ReadLine());
+            System.Console.Write("Inserir a quantidade de Moedas: ");
+            int moedas = int.Parse(Console.ReadLine());
 
                 inimigo.InimigoId = id;
                 inimigo.Nome = nome;
@@ -99,6 +104,7 @@ namespace rpg_console.Controllers
                 inimigo.Mp = mp;
                 inimigo.Forca = forca;
                 inimigo.Defesa = defesa;
+                inimigo.Moedas = moedas;
             
             _context.Inimigos.Update(inimigo);
             _context.SaveChanges();
