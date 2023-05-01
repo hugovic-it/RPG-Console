@@ -18,6 +18,8 @@ namespace rpg_console
             inimigo = _inimigo;
         }
         public void LutaNormal(){
+        inimigo.Hp = inimigo.HpMax;
+        jogador.Hp = jogador.HpMax;
         System.Console.WriteLine($"O jogador {jogador.Nome} deseja lutar? (y/n)");
         string resposta = Console.ReadLine();
         if (resposta == "n" || resposta == "N"){
@@ -31,18 +33,20 @@ namespace rpg_console
 
             int dano  = jogador.Forca - inimigo.Defesa ;   
             System.Console.WriteLine($"O jogador {jogador.Nome} ataca e causa {dano} de dano ao Inimigo {inimigo.Nome}");
+            System.Console.WriteLine($"O Inimigo {inimigo.Nome} fica com {inimigo.Hp}HP");
             inimigo.Hp = inimigo.Hp - dano;
             if(inimigo.Hp <= 0 ){
-                jogador.Moedas = inimigo.Moedas;
-                jogador.Experiencia = jogador.Experiencia;
-                System.Console.WriteLine($"O inimigo {inimigo.Nome} foi finalizado!");
+                jogador.Moedas = jogador.Moedas + inimigo.Moedas;
+                jogador.Experiencia = jogador.Experiencia + jogador.Experiencia;
+                System.Console.WriteLine($"O inimigo {inimigo.Nome} fica com {inimigo.Hp}HP e é finalizado!");
                 System.Console.WriteLine($"O jogador ganhou {inimigo.Experiencia} experiencia e {inimigo.Moedas} moedas");
                 return;
             }
             
-            dano = inimigo.Forca * 2 - jogador.Defesa / 2;    
+            dano = inimigo.Forca * 2 - jogador.Defesa;  
+            jogador.Hp = jogador.Hp - dano;  
             System.Console.WriteLine($"O inimigo {inimigo.Nome} ataca e causa {dano} de dano ao Jogador {jogador.Nome}");
-        
+            System.Console.WriteLine($"O Jogador {jogador.Nome} fica com {jogador.Hp}HP");
 
         if (jogador.Hp <= 0){
             

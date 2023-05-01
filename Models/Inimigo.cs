@@ -21,6 +21,6 @@ public class Inimigo
     public override string ToString()
     {
         return 
-        $"Id:{InimigoId} Nome:{Nome} Hp:{Hp} Mp:{Mp} Forca:{Forca} Defesa:{Defesa} Experiencia:{Experiencia} Moedas:{Moedas}";
+        $"Id:{InimigoId} Nome:{Nome} HpMax:{HpMax} MpMax:{MpMax} Forca:{Forca} Defesa:{Defesa} Experiencia:{Experiencia} Moedas:{Moedas}";
     }
 }

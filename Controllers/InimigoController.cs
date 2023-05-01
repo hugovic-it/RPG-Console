@@ -22,10 +22,10 @@ namespace rpg_console.Controllers
                 System.Console.WriteLine("Inserir dados do Inimigo: \n");
                 System.Console.Write("Inserir o Nome: ");
                 string nome = Console.ReadLine();
-                System.Console.Write("Inserir a quantidade de HP: ");
-                int hp = int.Parse(Console.ReadLine());
-                System.Console.Write("Inserir a quantidade de MP: ");
-                int mp = int.Parse(Console.ReadLine());
+                System.Console.Write("Inserir a quantidade de HPMax: ");
+                int hpMax = int.Parse(Console.ReadLine());
+                System.Console.Write("Inserir a quantidade de MPMax: ");
+                int mpMax = int.Parse(Console.ReadLine());
                 System.Console.Write("Inserir a quantidade de Forca: ");
                 int forca = int.Parse(Console.ReadLine());
                 System.Console.Write("Inserir a quantidade de Defesa: ");
@@ -38,8 +38,8 @@ namespace rpg_console.Controllers
 
                 Inimigo inimigo = new Inimigo{
                     Nome = nome,
-                    Hp = hp,
-                    Mp = mp,
+                    HpMax = hpMax,
+                    MpMax = mpMax,
                     Forca = forca,
                     Defesa = defesa,
                     Experiencia = experiencia,
@@ -85,10 +85,10 @@ namespace rpg_console.Controllers
             System.Console.WriteLine("Inserir dados do inimigo: ");
             System.Console.Write("Inserir o Nome: ");
             string nome = Console.ReadLine();
-            System.Console.Write("Inserir a quantidade de HP: ");
-            int hp = int.Parse(Console.ReadLine());
-            System.Console.Write("Inserir a quantidade de MP: ");
-            int mp = int.Parse(Console.ReadLine());
+            System.Console.Write("Inserir a quantidade de HPMax: ");
+            int hpMax = int.Parse(Console.ReadLine());
+            System.Console.Write("Inserir a quantidade de MPMax: ");
+            int mpMax = int.Parse(Console.ReadLine());
             System.Console.Write("Inserir a quantidade de Forca: ");
             int forca = int.Parse(Console.ReadLine());
             System.Console.Write("Inserir a quantidade de Defesa: ");
@@ -100,8 +100,8 @@ namespace rpg_console.Controllers
 
                 inimigo.InimigoId = id;
                 inimigo.Nome = nome;
-                inimigo.Hp = hp;
-                inimigo.Mp = mp;
+                inimigo.HpMax = hpMax;
+                inimigo.MpMax = mpMax;
                 inimigo.Forca = forca;
                 inimigo.Defesa = defesa;
                 inimigo.Moedas = moedas;
