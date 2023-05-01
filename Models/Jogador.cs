@@ -9,7 +9,9 @@ public class Jogador
 {
     public int JogadorId { get; set; }
     public string? Nome { get; set; }
+    public int HpMax { get; set; }
     public int Hp { get; set; }
+    public int MpMax { get; set; }
     public int Mp { get; set; }
     public int Forca { get; set; }
     public int Defesa { get; set; }

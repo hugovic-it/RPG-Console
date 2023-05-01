@@ -30,9 +30,9 @@ namespace rpg_console
             System.Console.WriteLine($"{i}° turno");
 
             int dano  = jogador.Forca - inimigo.Defesa ;   
-            System.Console.WriteLine($"O jogador {jogador.Nome} ataca e causa {dano} de dano ao Inimigo{inimigo.Nome}");
+            System.Console.WriteLine($"O jogador {jogador.Nome} ataca e causa {dano} de dano ao Inimigo {inimigo.Nome}");
             inimigo.Hp = inimigo.Hp - dano;
-            if(inimigo.Hp > 0 ){
+            if(inimigo.Hp <= 0 ){
                 jogador.Moedas = inimigo.Moedas;
                 jogador.Experiencia = jogador.Experiencia;
                 System.Console.WriteLine($"O inimigo {inimigo.Nome} foi finalizado!");
@@ -41,10 +41,10 @@ namespace rpg_console
             }
             
             dano = inimigo.Forca * 2 - jogador.Defesa / 2;    
-            System.Console.WriteLine($"O inimigo {inimigo.Nome} ataca e causa {dano} de dano ao Jogador{jogador.Nome}");
+            System.Console.WriteLine($"O inimigo {inimigo.Nome} ataca e causa {dano} de dano ao Jogador {jogador.Nome}");
         
 
-        if (jogador.Hp > 0){
+        if (jogador.Hp <= 0){
             
             jogador.Moedas = jogador.Moedas / 2;
             jogador.Hp = 100;
@@ -55,6 +55,8 @@ namespace rpg_console
             return;
             
         }
+         i++;
+         Console.ReadKey();
         }
  
 
