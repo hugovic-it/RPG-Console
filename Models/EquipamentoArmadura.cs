@@ -10,7 +10,7 @@ namespace rpg_console.Models
         public int EquipamentoArmaduraId { get; set; }
         public string? Nome { get; set; }
         public string? Descricao { get; set; }
-        public string? Ataque { get; set; }
+        public int Defesa { get; set; }
 
         public override string ToString()
         {

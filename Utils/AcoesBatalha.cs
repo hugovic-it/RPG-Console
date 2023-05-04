@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace rpg_console.Services
+namespace rpg_console.Utils
 {
-    public class CadastrarJogador
+    public class AcoesBatalha
     {
         
     }
