@@ -16,5 +16,10 @@ namespace rpg_console.Models
         {
             return $"Id:{EquipamentoArmaId} Nome{Nome} \n Descricao:{Descricao}";
         }
+
+        public static implicit operator EquipamentoArma(Jogador v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
