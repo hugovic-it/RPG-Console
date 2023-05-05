@@ -14,17 +14,18 @@ class Program
         JogadorController jogadorController = new JogadorController(contexto);
         InimigoController inimigoController = new InimigoController(contexto);
         Batalha batalha = new Batalha(PerfilJogador.Perfil(contexto), PerfilInimigo.Perfil(contexto));
-
+        EquipamentoArmaController armaController = new EquipamentoArmaController(contexto);
         Console.WriteLine("Olár!");
 
         int menu = 0;
         int submenu = 0;
-        while(menu != 4){
+        while(menu != 5){
             System.Console.WriteLine(" ============= Menu ============= ");
             System.Console.WriteLine(" 1 -> menu Jogador ");
             System.Console.WriteLine(" 2 -> menu Inimigo ");
             System.Console.WriteLine(" 3 -> menu Batalha");
-            System.Console.WriteLine(" 4 -> Sair ");
+            System.Console.WriteLine(" 4 -> menu Arma");
+            System.Console.WriteLine(" 5 -> Sair ");
         
             System.Console.Write("Inserir index de navegação: ");
             menu = int.Parse(Console.ReadLine());
@@ -104,12 +105,9 @@ class Program
 
                 switch(submenu){
                     case 1:
-                        System.Console.WriteLine("caso 1");
                         batalha.LutaCerta();
-                        System.Console.WriteLine("Luta certa finalizada");
                         break;
                     case 2:
-                        System.Console.WriteLine("Caso 2");
                         batalha.LutaNormal();
                         break;
                 }
@@ -117,6 +115,37 @@ class Program
             }
             submenu = 0 ;
 
+            //=======================================================================================================
+            while(menu == 4 && submenu != 6){
+                System.Console.WriteLine("submenu arma");
+                System.Console.WriteLine("1 -> Visualizar todas as armas");
+                System.Console.WriteLine("2 -> Visualizar arma especifica");
+                System.Console.WriteLine("3 -> Adicionar arma");
+                System.Console.WriteLine("4 -> Atualizar arma");
+                System.Console.WriteLine("5 -> Remover arma");
+                System.Console.WriteLine("6 -> Sair");
+                submenu = int.Parse(Console.ReadLine());
+                
+                switch(submenu){
+                    case 1:
+                        armaController.VisualizarTodasArma();
+                        break;
+                    case 2:
+                        armaController.VisualizarArmaEspecifica();
+                        break;
+                    case 3:
+                        armaController.AdicionarArma();
+                        break;
+                    case 4:
+                        armaController.AtualizarArma();
+                        break;
+                    case 5:
+                        armaController.DeletarArma();
+                        break;
+                }
+
+            }
+            submenu = 0;
         
         
     }

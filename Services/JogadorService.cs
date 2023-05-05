@@ -21,7 +21,7 @@ namespace rpg_console.Services
                 System.Console.WriteLine("Jogador nulo");
                 return;
             }
-            var arma = contexto.Jogadores.FirstOrDefault(X => X.Arma.EquipamentoArmaId == armaId);
+            var arma = contexto.Armas.FirstOrDefault(X => X.EquipamentoArmaId == armaId);
             if(arma is null){
                 System.Console.WriteLine("Arma nula");
                 return;
@@ -31,12 +31,12 @@ namespace rpg_console.Services
                 jogador.Forca = jogador.Arma.Ataque;
             }
             jogador.Arma = arma;
-            jogador.Forca =+ arma.Forca;
+            jogador.Forca =+ arma.Ataque;
             System.Console.WriteLine("Arma equipada com sucesso!");
         }
 
         public void EquiparArmadura(int jogadorId, int armaduraId){
-
+            
         }
     }
 }

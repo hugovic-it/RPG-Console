@@ -119,7 +119,6 @@ namespace rpg_console.Controllers
 
             _context.Jogadores.Remove(jogador);
             _context.SaveChanges();
-            return;
         }
     }
 }
