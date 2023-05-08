@@ -149,7 +149,7 @@ class Program
             }
             submenu = 0;
 
-            while(menu == 5 && submenu != 6){
+            while(menu == 5 && submenu != 2){
                 System.Console.WriteLine("submenu JogadorController");
                 System.Console.WriteLine(" 1 -> Equipar Arma");
                 System.Console.WriteLine(" 2 -> Sair");
@@ -166,12 +166,10 @@ class Program
                         break;
                     case 2:
 
-                        break;
-            };
-            
-        
-        
+                    break;
+                };
+            }
+            submenu = 0;
+        }
     }
-}
-}
 }
