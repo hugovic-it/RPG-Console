@@ -15,6 +15,8 @@ namespace rpg_console.Services
         }
 
         public void EquiparArma(int jogadorId, int armaId){
+            //int jogadorId = int.Parse(Console.ReadLine());
+            //int armaId = int.Parse(Console.ReadLine());
             var jogador = contexto.Jogadores.FirstOrDefault(x => x.JogadorId == jogadorId);
 
             if(jogador is null){

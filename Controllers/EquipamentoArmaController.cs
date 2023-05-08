@@ -27,6 +27,7 @@ namespace rpg_console.Controllers
         }
         
         public void VisualizarArmaEspecifica(){
+            System.Console.Write("Inserir o id da Arma: ");
             int id = int.Parse(Console.ReadLine());
             var resultado = contexto.Armas.FirstOrDefault(x => x.EquipamentoArmaId == id);
             if(resultado is null){
@@ -50,6 +51,8 @@ namespace rpg_console.Controllers
                 Descricao = descricao,
                 Ataque = ataque
             };
+            contexto.Armas.Add(arma);
+            contexto.SaveChanges();
         }
         
         public void AtualizarArma(){

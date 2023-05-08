@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using rpg_console.Context;
 using rpg_console.Controllers;
 using rpg_console.Models;
+using rpg_console.Services;
 
 namespace rpg_console;
 
@@ -15,17 +16,18 @@ class Program
         InimigoController inimigoController = new InimigoController(contexto);
         Batalha batalha = new Batalha(PerfilJogador.Perfil(contexto), PerfilInimigo.Perfil(contexto));
         EquipamentoArmaController armaController = new EquipamentoArmaController(contexto);
-        Console.WriteLine("Olár!");
+        JogadorService jogadorService = new JogadorService(contexto);
 
         int menu = 0;
         int submenu = 0;
-        while(menu != 5){
+        while(menu != 6){
             System.Console.WriteLine(" ============= Menu ============= ");
             System.Console.WriteLine(" 1 -> menu Jogador ");
             System.Console.WriteLine(" 2 -> menu Inimigo ");
             System.Console.WriteLine(" 3 -> menu Batalha");
             System.Console.WriteLine(" 4 -> menu Arma");
-            System.Console.WriteLine(" 5 -> Sair ");
+            System.Console.WriteLine(" 5 -> menu JogadorController");
+            System.Console.WriteLine(" 6 -> Sair ");
         
             System.Console.Write("Inserir index de navegação: ");
             menu = int.Parse(Console.ReadLine());
@@ -146,8 +148,30 @@ class Program
 
             }
             submenu = 0;
+
+            while(menu == 5 && submenu != 6){
+                System.Console.WriteLine("submenu JogadorController");
+                System.Console.WriteLine(" 1 -> Equipar Arma");
+                System.Console.WriteLine(" 2 -> Sair");
+                submenu = int.Parse(Console.ReadLine());
+                
+                switch(submenu){
+                    case 1:
+                        System.Console.Write("Inserir o ID do Jogador:");
+                        int jogadorId = int.Parse(Console.ReadLine());
+                        System.Console.Write("Inserir o ID da Arma:");
+                        int armaId = int.Parse(Console.ReadLine());
+                        //HERE ----
+                        jogadorService.EquiparArma(jogadorId,armaId);
+                        break;
+                    case 2:
+
+                        break;
+            };
+            
         
         
     }
+}
 }
 }

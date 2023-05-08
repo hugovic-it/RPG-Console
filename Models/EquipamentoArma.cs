@@ -14,12 +14,7 @@ namespace rpg_console.Models
 
         public override string ToString()
         {
-            return $"Id:{EquipamentoArmaId} Nome{Nome} \n Descricao:{Descricao}";
+            return $"Id: {EquipamentoArmaId}\nNome: {Nome}\nDescricao: {Descricao}\nAtaque: {Ataque}";
         }
-
-        //public static implicit operator EquipamentoArma(Jogador v)
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 }
