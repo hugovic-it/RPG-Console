@@ -29,19 +29,20 @@ namespace rpg_console.Services
                 return;
             }
 
-            if(jogador.Arma != null){
-                jogador.Forca = jogador.Forca - jogador.Arma.Ataque; //removendo o status da arma que sera removida
+            if(jogador.EquipamentoArmaId != 0){
+                var armaEquipada = contexto.Armas.First(x => x.EquipamentoArmaId == jogador.EquipamentoArmaId);
+                jogador.Forca = jogador.Forca - armaEquipada.Ataque; //removendo o status da arma que sera removida
             }
 
-            jogador.Arma = arma;  //recebendo a nova arma
+            jogador.EquipamentoArmaId = arma.EquipamentoArmaId;  //recebendo a nova arma
             jogador.Forca = jogador.Forca + arma.Ataque; //aplicando o status da nova arma
+            jogador.EquipamentoArmaId = armaId;
 
             //ao reiniciar a aplicação, o codigo persiste os status do jogador, mas não o da arma equipada
             contexto.Jogadores.Update(jogador);
-            contexto.Jogadores.Update(jogador);
             contexto.SaveChanges();
             System.Console.WriteLine("Arma equipada com sucesso!");
-
+            
         }
 
         public void EquiparArmadura(int jogadorId, int armaduraId){
