@@ -22,23 +22,25 @@ public class Jogador
     public int Defesa { get; set; }
     public int Experiencia { get; set; }
     public int Moedas { get; set; }
-    //public EquipamentoArma? Arma { get; set; } //remove ?
-    [JsonIgnore]
     public int EquipamentoArmaId { get; set; } //EF convencao
+    [JsonIgnore]
+    public EquipamentoArma? EquipamentoArma{ get; set;} 
+    [JsonIgnore]
     public EquipamentoArmadura? Armadura { get; set; }
+    [JsonIgnore]
     public ICollection<Item>? Itens {get; set;}
 
     public override string ToString()
     {
         
-        
         if(EquipamentoArmaId is 0){
             return $"Id:{JogadorId} Nome:{Nome} HpMax:{HpMax} MpMax:{MpMax} Forca:{Forca} Defesa:{Defesa} Experiencia:{Experiencia} Moedas:{Moedas}"; 
         }
-        
 
         var resultado = contexto.Armas.SingleOrDefault(x => x.EquipamentoArmaId == EquipamentoArmaId);
-        return $"Id:{JogadorId} Nome:{Nome} HpMax:{HpMax} MpMax:{MpMax} Forca:{Forca} Defesa:{Defesa} Experiencia:{Experiencia} Moedas:{Moedas} ArmaId:{EquipamentoArmaId} ArmaNome:{resultado} "; 
+        EquipamentoArma = resultado;  //garantindo que o objeto seja instanciando na memoria????
+        return $"Id:{JogadorId} Nome:{Nome} HpMax:{HpMax} MpMax:{MpMax} Forca:{Forca} Defesa:{Defesa} Experiencia:{Experiencia} Moedas:{Moedas}" 
+        + $"\n Arma Equipada: ID:{EquipamentoArma.EquipamentoArmaId} Nome:{EquipamentoArma.Nome} Ataque{EquipamentoArma.Ataque} Descricao: {EquipamentoArma.Descricao} "; 
 
     }
 }

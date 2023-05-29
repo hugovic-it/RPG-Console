@@ -38,6 +38,9 @@ namespace rpg_console.Services
             jogador.Forca = jogador.Forca + arma.Ataque; //aplicando o status da nova arma
             jogador.EquipamentoArmaId = armaId;
 
+            //Chave-estrangeira problem?
+            jogador.EquipamentoArma = arma;
+
             //ao reiniciar a aplicação, o codigo persiste os status do jogador, mas não o da arma equipada
             contexto.Jogadores.Update(jogador);
             contexto.SaveChanges();
