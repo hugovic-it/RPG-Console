@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using rpg_console.Context;
 using rpg_console.Models;
 
@@ -12,14 +13,16 @@ namespace rpg_console
         public Jogador jogador { get; set; }
         public Inimigo inimigo { get; set; }
 
-        public Batalha(Jogador _jogador, Inimigo _inimigo)
+        private readonly DbContext contexto;
+        public Batalha(Jogador _jogador, Inimigo _inimigo, DbContext _contexto)
         {
             jogador = _jogador;
             inimigo = _inimigo;
+            contexto = _contexto;
         }
         public void LutaNormal(){
         inimigo.Hp = inimigo.HpMax;
-        jogador.Hp = jogador.HpMax;
+        //jogador.Hp = jogador.HpMax;  //corrigido!!!
         System.Console.WriteLine($"O jogador {jogador.Nome} deseja lutar? (y/n)");
         string resposta = Console.ReadLine();
         if (resposta == "n" || resposta == "N"){
@@ -37,9 +40,12 @@ namespace rpg_console
             inimigo.Hp = inimigo.Hp - dano;
             if(inimigo.Hp <= 0 ){
                 jogador.Moedas = jogador.Moedas + inimigo.Moedas;
-                jogador.Experiencia = jogador.Experiencia + jogador.Experiencia;
+                jogador.Experiencia = jogador.Experiencia + inimigo.Experiencia;
                 System.Console.WriteLine($"O inimigo {inimigo.Nome} fica com {inimigo.Hp}HP e é finalizado!");
                 System.Console.WriteLine($"O jogador ganhou {inimigo.Experiencia} experiencia e {inimigo.Moedas} moedas");
+               
+                contexto.Update(jogador);
+                contexto.SaveChanges();
                 return;
             }
             
@@ -56,6 +62,9 @@ namespace rpg_console
             System.Console.WriteLine($"O jogador {jogador.Nome} foi finalizado!");
             System.Console.WriteLine($"O jogador {jogador.Nome} perdeu metade das moedas!");
             System.Console.WriteLine($"A Saude do jogador foi restaurada em {jogador.Hp}");
+
+            contexto.Update(jogador);
+            contexto.SaveChanges();
             return;
             
         }
@@ -72,6 +81,9 @@ namespace rpg_console
             System.Console.WriteLine($"A experiencia de {jogador.Nome} foi de {jogador.Experiencia} ");
             jogador.Experiencia = jogador.Experiencia + inimigo.Experiencia;
             System.Console.Write($"para {jogador.Experiencia}");
+
+            contexto.Update(jogador);
+            contexto.SaveChanges();
         }
     }
 }

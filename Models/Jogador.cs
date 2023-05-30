@@ -40,7 +40,8 @@ public class Jogador
         var resultado = contexto.Armas.SingleOrDefault(x => x.EquipamentoArmaId == EquipamentoArmaId);
         EquipamentoArma = resultado;  //garantindo que o objeto seja instanciando na memoria????
         return $"Id:{JogadorId} Nome:{Nome} HpMax:{HpMax} MpMax:{MpMax} Forca:{Forca} Defesa:{Defesa} Experiencia:{Experiencia} Moedas:{Moedas}" 
-        + $"\n Arma Equipada: ID:{EquipamentoArma.EquipamentoArmaId} Nome:{EquipamentoArma.Nome} Ataque{EquipamentoArma.Ataque} Descricao: {EquipamentoArma.Descricao} "; 
+        + $"\n Arma Equipada: ID:{EquipamentoArma.EquipamentoArmaId} Nome:{EquipamentoArma.Nome} Ataque{EquipamentoArma.Ataque} Descricao: {EquipamentoArma.Descricao} "
+        + $"\n Status atual: Hp:{HpMax}/{Hp} Mp:{MpMax}/{Mp}"; 
 
     }
 }

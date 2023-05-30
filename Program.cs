@@ -14,7 +14,7 @@ class Program
         AppDbContext contexto = new AppDbContext();
         JogadorController jogadorController = new JogadorController(contexto);
         InimigoController inimigoController = new InimigoController(contexto);
-        //Batalha batalha = new Batalha(PerfilJogador.Perfil(contexto), PerfilInimigo.Perfil(contexto));
+        Batalha batalha = new Batalha(PerfilJogador.Perfil(contexto), PerfilInimigo.Perfil(contexto), contexto);
         EquipamentoArmaController armaController = new EquipamentoArmaController(contexto);
         JogadorService jogadorService = new JogadorService(contexto);
 
@@ -107,10 +107,10 @@ class Program
 
                 switch(submenu){
                     case 1:
-                        //batalha.LutaCerta();
+                        batalha.LutaCerta();
                         break;
                     case 2:
-                        //batalha.LutaNormal();
+                        batalha.LutaNormal();
                         break;
                 }
                 
