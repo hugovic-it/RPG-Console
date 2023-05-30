@@ -30,7 +30,15 @@ class Program
             System.Console.WriteLine(" 6 -> Sair ");
         
             System.Console.Write("Inserir index de navegação: ");
+            try{
             menu = int.Parse(Console.ReadLine());
+            } catch (Exception e){
+                System.Console.WriteLine(e);
+                System.Console.ForegroundColor = ConsoleColor.Red;
+                System.Console.WriteLine("Inserir um valor valido!");
+                Console.ResetColor();
+                menu = 0;
+            }
         
             //=======================================================================================================
             while(menu == 1 && submenu != 6){
@@ -43,8 +51,16 @@ class Program
                 System.Console.WriteLine(" 6 -> Sair ");
                 
                 System.Console.Write("Inserir index de navegação: ");
-                submenu = int.Parse(Console.ReadLine());
-            
+                try{
+                    submenu = int.Parse(Console.ReadLine());
+                } catch (Exception e){
+                    System.Console.WriteLine(e);
+                    System.Console.ForegroundColor = ConsoleColor.Red;
+                    System.Console.WriteLine("Inserir um valor valido!");
+                    Console.ResetColor();
+                    submenu = 0;
+                }                
+
                 switch (submenu){
                     case 1:
                         jogadorController.CadastrarJogador();
@@ -75,7 +91,19 @@ class Program
                 System.Console.WriteLine(" 5 -> Remover inimigo especifico ");
                 System.Console.WriteLine(" 6 -> Sair ");
                 System.Console.Write("Inserir index de navegação: ");
-                submenu = int.Parse(Console.ReadLine());
+
+
+                
+                try{
+                    submenu = int.Parse(Console.ReadLine());
+                } catch (Exception e){
+                    System.Console.WriteLine(e);
+                    System.Console.ForegroundColor = ConsoleColor.Red;
+                    System.Console.WriteLine("Inserir um valor valido!");
+                    Console.ResetColor();
+                    submenu = 0;
+                }                
+
                 switch (submenu){
                     case 1:
                         inimigoController.CadastrarInimigo();
@@ -103,7 +131,18 @@ class Program
                 System.Console.WriteLine(" 1 -> Batalha Certa ");
                 System.Console.WriteLine(" 2 -> Batalha Normal");
                 System.Console.WriteLine(" 3 -> Sair");
-                submenu = int.Parse(Console.ReadLine());
+
+                
+                try{
+                    submenu = int.Parse(Console.ReadLine());
+                } catch (Exception e){
+                    System.Console.WriteLine(e);
+                    System.Console.ForegroundColor = ConsoleColor.Red;
+                    System.Console.WriteLine("Inserir um valor valido!");
+                    Console.ResetColor();
+                    submenu = 0;
+                }
+
 
                 switch(submenu){
                     case 1:
@@ -126,8 +165,19 @@ class Program
                 System.Console.WriteLine("4 -> Atualizar arma");
                 System.Console.WriteLine("5 -> Remover arma");
                 System.Console.WriteLine("6 -> Sair");
-                submenu = int.Parse(Console.ReadLine());
+
                 
+            try{
+                submenu = int.Parse(Console.ReadLine());
+            } catch (Exception e){
+                System.Console.WriteLine(e);
+                System.Console.ForegroundColor = ConsoleColor.Red;
+                System.Console.WriteLine("Inserir um valor valido!");
+                Console.ResetColor();
+                submenu = 0;
+            }
+
+
                 switch(submenu){
                     case 1:
                         armaController.VisualizarTodasArma();
@@ -153,7 +203,16 @@ class Program
                 System.Console.WriteLine("submenu JogadorController");
                 System.Console.WriteLine(" 1 -> Equipar Arma");
                 System.Console.WriteLine(" 2 -> Sair");
-                submenu = int.Parse(Console.ReadLine());
+                
+                try{
+                    submenu = int.Parse(Console.ReadLine());
+                } catch (Exception e){
+                    System.Console.WriteLine(e);
+                    System.Console.ForegroundColor = ConsoleColor.Red;
+                    System.Console.WriteLine("Inserir um valor valido!");
+                    Console.ResetColor();
+                    submenu = 0;
+                }
                 
                 switch(submenu){
                     case 1:
