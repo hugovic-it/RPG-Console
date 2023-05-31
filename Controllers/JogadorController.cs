@@ -36,11 +36,14 @@ namespace rpg_console.Controllers
                 Jogador jogador = new Jogador{
                     Nome = nome,
                     HpMax = hpMax,
+                    Hp = hpMax,
                     MpMax = mpMax,
+                    Mp = mpMax,
                     Forca = forca,
                     Defesa = defesa,
                     Experiencia = 0,
-                    Moedas = 0
+                    Moedas = 0,
+                
                 };
 
                 _context.Add(jogador);
@@ -96,7 +99,9 @@ namespace rpg_console.Controllers
                 jogador.JogadorId = id;
                 jogador.Nome = nome;
                 jogador.HpMax = hpMax;
+                jogador.Hp = hpMax;
                 jogador.MpMax = mpMax;
+                jogador.Mp = mpMax;
                 jogador.Forca = forca;
                 jogador.Defesa = defesa;
             

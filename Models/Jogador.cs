@@ -22,7 +22,7 @@ public class Jogador
     public int Defesa { get; set; }
     public int Experiencia { get; set; }
     public int Moedas { get; set; }
-    public int EquipamentoArmaId { get; set; } //EF convencao
+    public int? EquipamentoArmaId { get; set; } //EF convencao
     [JsonIgnore]
     public EquipamentoArma? EquipamentoArma{ get; set;} 
     [JsonIgnore]
@@ -33,7 +33,7 @@ public class Jogador
     public override string ToString()
     {
         
-        if(EquipamentoArmaId is 0){
+        if(EquipamentoArmaId is null || EquipamentoArmaId is 0){
             return $"Id:{JogadorId} Nome:{Nome} HpMax:{HpMax} MpMax:{MpMax} Forca:{Forca} Defesa:{Defesa} Experiencia:{Experiencia} Moedas:{Moedas}"; 
         }
 
