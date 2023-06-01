@@ -16,18 +16,20 @@ class Program
         InimigoController inimigoController = new InimigoController(contexto);
         Batalha batalha = new Batalha(PerfilJogador.Perfil(contexto), PerfilInimigo.Perfil(contexto), contexto);
         EquipamentoArmaController armaController = new EquipamentoArmaController(contexto);
+        EquipamentoArmaduraController armaduraController = new EquipamentoArmaduraController(contexto);
         JogadorService jogadorService = new JogadorService(contexto);
 
         int menu = 0;
         int submenu = 0;
-        while(menu != 6){
+        while(menu != 7){
             System.Console.WriteLine(" ============= Menu ============= ");
             System.Console.WriteLine(" 1 -> menu Jogador ");
             System.Console.WriteLine(" 2 -> menu Inimigo ");
             System.Console.WriteLine(" 3 -> menu Batalha");
             System.Console.WriteLine(" 4 -> menu Arma");
-            System.Console.WriteLine(" 5 -> menu JogadorController");
-            System.Console.WriteLine(" 6 -> Sair ");
+            System.Console.WriteLine(" 5 -> menu Armadura");
+            System.Console.WriteLine(" 6 -> menu JogadorController");
+            System.Console.WriteLine(" 7 -> Sair ");
         
             System.Console.Write("Inserir index de navegação: ");
             try{
@@ -199,7 +201,49 @@ class Program
             }
             submenu = 0;
 
-            while(menu == 5 && submenu != 2){
+            //=======================================================================================================
+            while(menu == 5 && submenu != 6){
+                System.Console.WriteLine("submenu armadura");
+                System.Console.WriteLine("1 -> Visualizar todas as armaduras");
+                System.Console.WriteLine("2 -> Visualizar armadura especifica");
+                System.Console.WriteLine("3 -> Adicionar armadura");
+                System.Console.WriteLine("4 -> Atualizar armadura");
+                System.Console.WriteLine("5 -> Remover armadura");
+                System.Console.WriteLine("6 -> Sair");
+
+                try{
+                    submenu = int.Parse(Console.ReadLine());
+                } catch (Exception e){
+                    System.Console.WriteLine(e);
+                    System.Console.ForegroundColor = ConsoleColor.Red;
+                    System.Console.WriteLine("Inserir um valor valido!");
+                    Console.ResetColor();
+                    submenu = 6;
+                }
+
+                switch(submenu){
+                    case 1:
+                        armaduraController.VisualizarTodasArmadura();
+                        break;
+                    case 2:
+                        armaduraController.VisualizarArmaduraEspecifica();
+                        break;
+                    case 3:
+                        armaduraController.AdicionarArmadura();
+                        break;
+                    case 4:
+                        armaduraController.AtualizarArmadura();
+                        break;
+                    case 5:
+                        armaduraController.DeletarArmadura();
+                        break;
+                }
+               
+            }
+            submenu = 0;
+
+            //=======================================================================================================
+            while(menu == 6 && submenu != 2){
                 System.Console.WriteLine("submenu JogadorController");
                 System.Console.WriteLine(" 1 -> Equipar Arma");
                 System.Console.WriteLine(" 2 -> Sair");

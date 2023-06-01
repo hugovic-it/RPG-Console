@@ -22,11 +22,12 @@ public class Jogador
     public int Defesa { get; set; }
     public int Experiencia { get; set; }
     public int Moedas { get; set; }
-    public int? EquipamentoArmaId { get; set; } //EF convencao
+    public int? EquipamentoArmaId { get; set; }
     [JsonIgnore]
-    public EquipamentoArma? EquipamentoArma{ get; set;} 
+    public EquipamentoArma? EquipamentoArma{ get; set;}
+    public int? EquipamentoArmaduraId { get; set; } 
     [JsonIgnore]
-    public EquipamentoArmadura? Armadura { get; set; }
+    public EquipamentoArmadura? EquipamentoArmadura { get; set; }
     [JsonIgnore]
     public ICollection<Item>? Itens {get; set;}
 

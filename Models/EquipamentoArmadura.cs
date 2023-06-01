@@ -14,7 +14,7 @@ namespace rpg_console.Models
 
         public override string ToString()
         {
-            return $"Id:{EquipamentoArmaduraId} Nome{Nome} \n Descricao:{Descricao}";
+            return $"Id: {EquipamentoArmaduraId} \nNome: {Nome} \nDescricao: {Descricao} \nDefesa: {Defesa}";
         }
     }
 }
